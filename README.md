@@ -3,8 +3,8 @@
 </h1>
 
 <h1 align="center">
-    <img alt="Home Page" title="Home Page" src="./assets/home-page.png" />
-    <img alt="Adicionar Tarefa" title="Adicionar tarefa" src="./assets/new-task.png" />
+    <img alt="Home Page" title="Home Page" src="./assets/home-page.jpeg" />
+    <img alt="Adicionar Tarefa" title="Adicionar tarefa" src="./assets/new-task.jpeg" />
 </h1>
 
 ## 🚀 Tecnologias
