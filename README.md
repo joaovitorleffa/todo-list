@@ -14,7 +14,7 @@
 
 ## 💻 Projeto
 #### Clone o repositório
-`git clone https://github.com/joaovitorleffa/nlw-03.git`
+`git clone https://github.com/joaovitorleffa/todo-list.git`
 #### Rode o projeto
 1. `cd`
 2. `flutter run`
