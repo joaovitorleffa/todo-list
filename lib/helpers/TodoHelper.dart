@@ -1,10 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-
-final String todoTable = "todoTable";
-final String idColumn = "idColumn";
-final String titleColumn = "titleColumn";
-final String descriptionColumn = "descriptionColumn";
+import 'package:todo_list_ap2/models/Todo.dart';
 
 class TodoHelper {
   static final TodoHelper _instance = TodoHelper.internal();
@@ -25,7 +21,6 @@ class TodoHelper {
   }
 
   Future<Database> initDb() async {
-    // caminho onde será criado o arquivo do sqlite
     final databasesPath = await getDatabasesPath();
     final path = join(databasesPath, 'todo_app.db');
 
@@ -37,7 +32,7 @@ class TodoHelper {
     });
   }
 
-  Future<Todo> saveTodo(Todo todo) async {
+  Future<Todo> insertTodo(Todo todo) async {
     Database dbTodo = await db;
     todo.id = await dbTodo.insert(todoTable, todo.toMap());
     return todo;
@@ -78,48 +73,8 @@ class TodoHelper {
     return listTodo;
   }
 
-  Future<int> getNumber() async {
-    Database dbTodo = await db;
-    return Sqflite.firstIntValue(
-        await dbTodo.rawQuery("SELECT COUNT(*) FROM $todoTable"));
-  }
-
   Future close() async {
     Database dbTodo = await db;
     dbTodo.close();
-  }
-}
-
-class Todo {
-  int id;
-  String title;
-  String description;
-
-  Todo();
-
-  // pega os dados da base de dados e passa para a classe Todo
-  Todo.fromMap(Map map) {
-    id = map[idColumn];
-    title = map[titleColumn];
-    description = map[descriptionColumn];
-  }
-
-  // pega os dados da classe e seta nas colunas da base de dados
-  Map toMap() {
-    Map<String, dynamic> map = {
-      titleColumn: title,
-      descriptionColumn: description,
-    };
-    if (id != null) {
-      map[idColumn] = id;
-    }
-
-    return map;
-  }
-
-  @override
-  String toString() {
-    // TODO: implement toString
-    return "Todo(id: $id, title: $title, decription: $description)";
   }
 }

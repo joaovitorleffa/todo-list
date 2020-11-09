@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list_ap2/helpers/TodoHelper.dart';
+import 'package:todo_list_ap2/models/Todo.dart';
 import 'package:todo_list_ap2/pages/todo_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -81,7 +82,7 @@ class _HomePageState extends State<HomePage> {
       if (todo != null) {
         await helper.updateTodo(recTodo);
       } else {
-        await helper.saveTodo(recTodo);
+        await helper.insertTodo(recTodo);
       }
       _getAllTodos();
     }
