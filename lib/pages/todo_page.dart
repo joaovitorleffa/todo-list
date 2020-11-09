@@ -39,7 +39,7 @@ class _TodoPageState extends State<TodoPage> {
       onWillPop: _requestPop,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.pink,
+          backgroundColor: Colors.teal,
           title: Text(_editedTodo.title ?? "Nova tarefa"),
           centerTitle: true,
         ),
@@ -52,7 +52,7 @@ class _TodoPageState extends State<TodoPage> {
             }
           },
           child: Icon(Icons.save),
-          backgroundColor: Colors.pink,
+          backgroundColor: Colors.teal,
         ),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(12.0),

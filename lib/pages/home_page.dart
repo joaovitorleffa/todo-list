@@ -14,7 +14,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     _getAllTodos();
@@ -25,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Tarefas"),
-        backgroundColor: Colors.pink,
+        backgroundColor: Colors.teal,
         centerTitle: true,
       ),
       backgroundColor: Colors.white,
@@ -34,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           _showTodoPage();
         },
         child: Icon(Icons.add),
-        backgroundColor: Colors.pink,
+        backgroundColor: Colors.teal,
       ),
       body: ListView.builder(
         padding: EdgeInsets.all(12.0),
@@ -64,56 +63,15 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       onTap: () {
-        _showOptions(context, index);
+        _showTodoPage(todo: todos[index]);
+      },
+      onLongPress: () {
+        helper.deleteTodo(todos[index].id);
+        setState(() {
+          todos.removeAt(index);
+        });
       },
     );
-  }
-
-  void _showOptions(BuildContext context, int index) {
-    showModalBottomSheet(
-        context: context,
-        builder: (context) {
-          return BottomSheet(
-            onClosing: () {},
-            builder: (context) {
-              return Container(
-                padding: EdgeInsets.all(12.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                          _showTodoPage(todo: todos[index]);
-                        },
-                        child: Text("Editar",
-                            style:
-                                TextStyle(color: Colors.pink, fontSize: 20.0)),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          helper.deleteTodo(todos[index].id);
-                          setState(() {
-                            todos.removeAt(index);
-                            Navigator.pop(context);
-                          });
-                        },
-                        child: Text("Excluir",
-                            style:
-                                TextStyle(color: Colors.pink, fontSize: 20.0)),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
-        });
   }
 
   void _showTodoPage({Todo todo}) async {
