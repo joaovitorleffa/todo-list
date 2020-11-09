@@ -1,16 +1,20 @@
-# todo_list_ap2
+<h1 align="center">
+    Todo List
+</h1>
 
-A new Flutter project.
+<h1 align="center">
+    <img alt="Home Page" title="Home Page" src="./assets/home-page.png" />
+    <img alt="Adicionar Tarefa" title="Adicionar tarefa" src="./assets/new-task.png" />
+</h1>
 
-## Getting Started
+## 🚀 Tecnologias
 
-This project is a starting point for a Flutter application.
+- [Flutter](https://flutter.dev/)
+- [Sqflite](https://pub.dev/packages/sqflite)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 💻 Projeto
+#### Clone o repositório
+`git clone https://github.com/joaovitorleffa/nlw-03.git`
+#### Rode o projeto
+1. `cd`
+2. `flutter run`
